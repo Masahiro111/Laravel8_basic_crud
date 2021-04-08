@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ArticleController::class, 'index'])->name('index');
 Route::get('/create', [ArticleController::class, 'create'])->name('create');
 Route::post('/', [ArticleController::class, 'store'])->name('store');
-Route::get('/{id}', [ArticleController::class, 'show'])->name('show');
-Route::get('/{id}/edit', [ArticleController::class, 'edit'])->name('edit');
-Route::put('/{id}', [ArticleController::class, 'update'])->name('update');
-Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
+Route::get('/{article}', [ArticleController::class, 'show'])->name('show');
+Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
+Route::put('/{article}', [ArticleController::class, 'update'])->name('update');
+Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
 
 
 

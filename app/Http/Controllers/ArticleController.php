@@ -57,7 +57,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('articles.show', compact('article'));
+        return view('show', compact('article'));
     }
 
     /**
@@ -68,7 +68,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        return view('edit', compact('article'));
     }
 
     /**
@@ -87,7 +87,7 @@ class ArticleController extends Controller
 
         $article->update($request->all());
 
-        return redirect()->route('articles.index')
+        return redirect()->route('index')
             ->with('success', 'Article updated successfully');
     }
 
@@ -101,7 +101,7 @@ class ArticleController extends Controller
     {
         $article->delete();
 
-        return redirect()->route('articles.index')
+        return redirect()->route('index')
             ->with('success', 'Article deleted successfully');
     }
 }
