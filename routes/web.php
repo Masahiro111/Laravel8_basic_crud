@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ArticleController::class, 'index'])->name('index');
+Route::get('/create', [ArticleController::class, 'create'])->name('create');
+Route::post('/', [ArticleController::class, 'store'])->name('store');
+Route::get('/{id}', [ArticleController::class, 'show'])->name('show');
+Route::get('/{id}/edit', [ArticleController::class, 'edit'])->name('edit');
+Route::put('/{id}', [ArticleController::class, 'update'])->name('update');
+Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
