@@ -1,15 +1,9 @@
 @extends('layouts.app-article')
 
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Check all Article</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('create') }}"> Create new Article</a>
-        </div>
-    </div>
+<div class="col-lg-12 margin-tb mb-8">
+    <a class="px-6 py-2 border border-transparent  text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+        href="{{ route('create') }}"> Create new Article</a>
 </div>
 
 @if ($message = Session::get('success'))
@@ -18,35 +12,76 @@
 </div>
 @endif
 
-<table class="table table-bordered">
-    <tr>
-        <th>No</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th width="250px">Action</th>
-    </tr>
-    @foreach ($articles as $article)
-    <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $article->title }}</td>
-        <td>{{ $article->article }}</td>
-        <td>
-            <form action="{{ route('destroy',$article->id) }}" method="POST">
+<div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                No
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Title
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Article
+                            </th>
+                            <th scope="col" class="relative px-6 py-3">
+                                <span class="sr-only">Edit</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach ($articles as $article)
 
-                <a class="btn btn-info" href="{{ route('show',$article->id) }}">Show</a>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                {{ ++$i }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                {{ $article->title }}
+                            </td>
 
-                <a class="btn btn-primary" href="{{ route('edit',$article->id) }}">Edit</a>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ $article->article }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <form action="{{ route('destroy',$article->id) }}" method="POST">
 
-                @csrf
-                @method('DELETE')
+                                    <a class="text-indigo-600 hover:text-indigo-900"
+                                        href="{{ route('show',$article->id) }}">Show</a>
 
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-        </td>
-    </tr>
-    @endforeach
-</table>
+                                    <a class="text-indigo-600 hover:text-indigo-900"
+                                        href="{{ route('edit',$article->id) }}">Edit</a>
 
-{!! $articles->links() !!}
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"
+                                        class="bg-white text-red-700 hover:text-indigo-900">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        @endforeach
+
+                        {!! $articles->links() !!}
+
+
+                        <!-- More items... -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 @endsection
