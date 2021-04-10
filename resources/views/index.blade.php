@@ -40,7 +40,7 @@
                         @foreach ($articles as $article)
 
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                            <td class="px-6 py-4 whitespace-nowrap">
                                 {{ ++$i }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
@@ -53,29 +53,29 @@
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <form action="{{ route('destroy',$article->id) }}" method="POST">
 
-                                    <a class="text-indigo-600 hover:text-indigo-900"
+                                    <a class="ml-1 px-6 py-2 border border-indigo-600 bg-white  text-sm rounded-md text-indigo-600 hover:bg-indigo-700 hover:text-white"
                                         href="{{ route('show',$article->id) }}">Show</a>
 
-                                    <a class="text-indigo-600 hover:text-indigo-900"
+                                    <a class="ml-1 px-6 py-2 border border-indigo-600 bg-white  text-sm rounded-md text-indigo-600 hover:bg-indigo-700 hover:text-white"
                                         href="{{ route('edit',$article->id) }}">Edit</a>
 
                                     @csrf
                                     @method('DELETE')
 
                                     <button type="submit"
-                                        class="bg-white text-red-700 hover:text-indigo-900">Delete</button>
+                                        class="ml-1 px-6 py-2 border border-red-600 bg-white  text-sm rounded-md text-red-600 hover:bg-red-700 hover:text-white">Delete</button>
                                 </form>
                             </td>
                         </tr>
 
                         @endforeach
 
-                        {!! $articles->links() !!}
-
-
                         <!-- More items... -->
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-8">
+                {!! $articles->links() !!}
             </div>
         </div>
     </div>
