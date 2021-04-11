@@ -1,15 +1,10 @@
 @extends('layouts.app-article')
 
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Create New Article</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('index') }}"> Back</a>
-        </div>
-    </div>
+
+<div class="col-lg-12 margin-tb mb-8">
+    <a class="px-6 py-2 border border-transparent  text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+        href="{{ route('index') }}"> Back</a>
 </div>
 
 @if ($errors->any())
@@ -28,9 +23,9 @@
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+                <h3 class="text-lg font-medium leading-6 text-gray-900">New Article</h3>
                 <p class="mt-1 text-sm text-gray-600">
-                    Use a permanent address where you can receive mail.
+                    Write new article details and push Save button.
                 </p>
             </div>
         </div>
@@ -57,11 +52,9 @@
                                         placeholder="Article"></textarea>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">
-                                    Brief description for your profile. URLs are hyperlinked.
+                                    Wite article in text box.
                                 </p>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

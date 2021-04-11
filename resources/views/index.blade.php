@@ -40,10 +40,10 @@
                         @foreach ($articles as $article)
 
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ ++$i }}
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ $article->id }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ $article->title }}
                             </td>
 
