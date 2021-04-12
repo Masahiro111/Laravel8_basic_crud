@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-lg-12 margin-tb mb-8">
-    <a class="px-6 py-2 border border-transparent  text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+    <a class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         href="{{ route('index') }}"> Back</a>
 </div>
 
